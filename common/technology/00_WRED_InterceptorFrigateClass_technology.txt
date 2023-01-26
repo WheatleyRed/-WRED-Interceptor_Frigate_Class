@@ -1,0 +1,59 @@
+WRED_InterceptorFrigateMod_tech = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 2
+	category = {voidcraft}
+	icon = WRED_InterceptorFrigate_tech	#图标
+	weight = @tier2cost1
+	gateway = ship
+
+	prerequisites = {
+		"tech_destroyers"
+	}
+
+	prereqfor_desc = {
+		ship = {
+			title = "TECH_WRED_UNLOCK_INTERCEPTORFRIGATE_CONSTRUCTION_TITLE"
+			desc = "TECH_WRED_UNLOCK_INTERCEPTORFRIGATE_CONSTRUCTION_DESC"
+		}
+	}
+	#权重修改
+	weight_modifier = {
+		modifier = {
+			factor = 0.1
+			NOR = {years_passed > 10}
+		}
+
+		modifier = {
+			factor = 10
+			any_neighbor_country = {
+				has_technology = tech_destroyers
+			}
+		}
+
+		modifier = {
+			factor = 2
+			years_passed = 20
+		}
+
+		modifier = {
+			factor = 3
+			years_passed = 3	
+		}
+
+		modifier = {
+			factor = 1.5
+			has_tradition = tr_supremacy_adopt	#树立霸权传统
+		}
+
+	}
+
+
+
+
+	ai_weight={
+		factor = 0
+	}
+
+
+}

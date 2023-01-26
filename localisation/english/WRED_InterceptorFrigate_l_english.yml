@@ -1,0 +1,12 @@
+﻿l_english:
+#section区段部分
+  WRED_InterceptorFrigate:0 "Interceptor"
+  WRED_INTERCEPTORFRIGATE_ATTACK_CORE_S4:0 "Strike Core"
+  WRED_INTERCEPTORFRIGATE_CATCH_CORE_S3:0 "Intercept Core"
+  WRED_INTERCEPTORFRIGATE_DEATHWIND_CORE_S2:0 "Lightning Core"
+
+#technology科技部分
+  WRED_InterceptorFrigateMod_tech:0 "Interceptor Frigate"
+  WRED_InterceptorFrigateMod_tech_desc:0 "Research interceptor frigate"
+  TECH_WRED_UNLOCK_INTERCEPTORFRIGATE_CONSTRUCTION_TITLE:0 "§HUnlock:§! Interceptor\nInterceptor is based on corvette and frigate technology, scientist upgrade the engine and defense.  §Rit will cost more resources§!"
+  TECH_WRED_UNLOCK_INTERCEPTORFRIGATE_CONSTRUCTION_TITLE_DESC:0 "Research interceptor frigate"

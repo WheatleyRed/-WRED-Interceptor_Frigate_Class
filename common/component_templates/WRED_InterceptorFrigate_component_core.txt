@@ -1,0 +1,369 @@
+################
+#	POWER能量	#
+################
+
+@InterceptorFrigate_power_1 = 105
+@InterceptorFrigate_power_2 = 125
+@InterceptorFrigate_power_3 = 155
+@InterceptorFrigate_power_4 = 205
+@InterceptorFrigate_power_5 = 245
+@InterceptorFrigate_power_6 = 315
+
+##########这部分是NSC2适配的########
+@InterceptorFrigate_power_7 = 365
+@InterceptorFrigate_power_8 = 395
+@InterceptorFrigate_power_9 = 435
+@InterceptorFrigate_power_10 = 500
+@InterceptorFrigate_power_11 = 580
+###################################
+
+
+
+
+################
+#	COST花费	#
+################
+
+@InterceptorFrigate_cost_1 = 12
+@InterceptorFrigate_cost_2 = 15
+@InterceptorFrigate_cost_3 = 20
+@InterceptorFrigate_cost_4 = 25
+@InterceptorFrigate_cost_5 = 31
+@InterceptorFrigate_cost_6 = 40
+
+##########这部分是NSC2适配的########
+@InterceptorFrigate_cost_7 = 51
+@InterceptorFrigate_cost_8 = 63
+@InterceptorFrigate_cost_9 = 76
+@InterceptorFrigate_cost_10 = 89
+@InterceptorFrigate_cost_11 = 103
+###################################
+
+
+
+
+##########################################
+#这个部分是给截击舰配好一套像原版一样的反应堆
+##########################################
+
+#一级反应堆
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_FISSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_1"
+	icon_frame = 1
+	power = @InterceptorFrigate_power_1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @InterceptorFrigate_cost_1
+		}
+		upkeep = {
+			energy = 0.12
+			alloys = 0.015
+		}
+	}
+
+	prerequisites = { "tech_fission_power" }
+	component_set = "power_core"
+	size_restriction = { WRED_InterceptorFrigate }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_FUSION_REACTOR"
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+#二级反应堆
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_FUSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_2"
+	icon_frame = 1
+	power = @InterceptorFrigate_power_2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @InterceptorFrigate_cost_2
+		}
+		upkeep = {
+			energy = 0.15
+			alloys = 0.017
+		}
+	}
+
+	prerequisites = { "tech_fusion_power" }
+	component_set = "power_core"
+	size_restriction = { WRED_InterceptorFrigate }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_COLD_FUSION_REACTOR"
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+#三级反应堆
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COLD_FUSION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_3"
+	icon_frame = 1
+	power = @InterceptorFrigate_power_3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @InterceptorFrigate_cost_3
+		}
+		upkeep = {
+			energy = 0.19
+			alloys = 0.02
+		}
+	}
+
+	prerequisites = { "tech_cold_fusion_power" }
+	component_set = "power_core"
+	size_restriction = { WRED_InterceptorFrigate }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_ANTIMATTER_REACTOR"
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+#四级反应堆
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_ANTIMATTER_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_4"
+	icon_frame = 1
+	power = @InterceptorFrigate_power_4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @InterceptorFrigate_cost_4
+		}
+		upkeep = {
+			energy = 0.25
+			alloys = 0.026
+		}
+	}
+
+	prerequisites = { "tech_antimatter_power" }
+	component_set = "power_core"
+	size_restriction = { WRED_InterceptorFrigate }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_ZERO_POINT_REACTOR"
+
+	ai_weight = {
+		weight = 4
+	}
+}
+
+#五级反应堆
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_ZERO_POINT_REACTOR"
+	size = small
+	icon = "GFX_ship_part_reactor_5"
+	icon_frame = 1
+	power = @InterceptorFrigate_power_5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @InterceptorFrigate_cost_5
+		}
+		upkeep = {
+			energy = 0.3
+			alloys = 0.031
+		}
+	}
+
+	prerequisites = { "tech_zero_point_power" }
+	component_set = "power_core"
+	size_restriction = { WRED_InterceptorFrigate }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_DARK_MATTER_REACTOR"
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+#特殊反应堆
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_DARK_MATTER_REACTOR"
+	size = small
+	icon = "GFX_ship_part_dark_matter_power_core"
+	icon_frame = 1
+	power = @InterceptorFrigate_power_6
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @InterceptorFrigate_cost_6
+			sr_dark_matter = 1
+		}
+		upkeep = {
+			energy = 0.4
+			alloys = 0.04
+		}
+	}
+
+	prerequisites = { "tech_dark_matter_power_core" }
+	component_set = "power_core"
+	size_restriction = { WRED_InterceptorFrigate }
+
+	ai_weight = {
+		weight = 6
+		modifier = {
+			factor = 0.0
+			no_resource_for_component = { RESOURCE = sr_dark_matter }
+		}
+		modifier = {
+			factor = 0.0
+			is_ai = yes
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+##########################################
+#这个部分是给截击舰配好一套NSC2的反应堆
+##########################################
+
+# utility_component_template = {
+# 	key = "WRED_INTERCEPTORFRIGATE_GRAVITON_REACTOR"
+# 	size = small
+# 	icon = "GFX_ship_part_reactor_6_NSC"
+# 	icon_frame = 1
+# 	power = @InterceptorFrigate_power_7
+	
+# 	resources = {
+# 		category = ship_components
+# 		cost = { alloys = @InterceptorFrigate_cost_7 }	
+# 		upkeep = {
+# 			energy = 0.49
+# 			alloys = 0.05
+# 		}
+# 	}
+
+# 	prerequisites = { "tech_graviton_power" }
+# 	component_set = "power_core"
+# 	size_restriction = { WRED_InterceptorFrigate }
+# 	upgrades_to = "WRED_INTERCEPTORFRIGATE_NAQUADRIA_REACTOR"
+	
+# 	ai_weight = { weight = 7 }
+# }
+
+
+# utility_component_template = {
+# 	key = "WRED_INTERCEPTORFRIGATE_NAQUADRIA_REACTOR"
+# 	size = small
+# 	icon = "GFX_ship_part_reactor_7_NSC"
+# 	icon_frame = 1
+# 	power = @InterceptorFrigate_power_8
+	
+# 	resources = {
+# 		category = ship_components
+# 		cost = { alloys = @InterceptorFrigate_cost_8 }	
+# 		upkeep = {
+# 			energy = 0.60
+# 			alloys = 0.06
+# 		}
+# 	}
+	
+# 	prerequisites = { "tech_naquadria_power" }
+# 	component_set = "power_core"
+# 	size_restriction = { WRED_InterceptorFrigate }
+# 	upgrades_to = "WRED_INTERCEPTORFRIGATE_SINGULARITY_REACTOR"
+	
+# 	ai_weight = { weight = 8 }
+# }
+
+# utility_component_template = {
+# 	key = "WRED_INTERCEPTORFRIGATE_SINGULARITY_REACTOR"
+# 	size = small
+# 	icon = "GFX_ship_part_reactor_8_NSC"
+# 	icon_frame = 1
+# 	power = @InterceptorFrigate_power_9
+	
+# 	resources = {
+# 		category = ship_components
+# 		cost = { alloys = @InterceptorFrigate_cost_9 }	
+# 		upkeep = {
+# 			energy = 0.68
+# 			alloys = 0.068
+# 		}
+# 	}
+	
+# 	prerequisites = { "tech_singularity_power" }
+# 	component_set = "power_core"
+# 	size_restriction = { WRED_InterceptorFrigate }
+# 	upgrades_to = "WRED_INTERCEPTORFRIGATE_MULTIDIMENSIONAL_REACTOR"
+	
+# 	ai_weight = { weight = 9 }
+# }
+
+
+# utility_component_template = {
+# 	key = "WRED_INTERCEPTORFRIGATE_MULTIDIMENSIONAL_REACTOR"
+# 	size = small
+# 	icon = "GFX_ship_part_reactor_9_NSC"
+# 	icon_frame = 1
+# 	power = @InterceptorFrigate_power_10
+	
+# 	resources = {
+# 		category = ship_components
+# 		cost = { alloys = @InterceptorFrigate_cost_10 }	
+# 		upkeep = {
+# 			energy = 0.78
+# 			alloys = 0.078
+# 		}
+# 	}
+	
+# 	prerequisites = { "tech_multidimensional_power" }
+# 	component_set = "power_core"
+# 	size_restriction = { WRED_InterceptorFrigate }
+# 	upgrades_to = "WRED_INTERCEPTORFRIGATE_OPTIMIZED_ENIGMATIC_REACTOR"
+	
+# 	ai_weight = { weight = 10 }
+# }
+
+
+# utility_component_template = {
+# 	key = "WRED_INTERCEPTORFRIGATE_OPTIMIZED_ENIGMATIC_REACTOR"
+# 	size = small
+# 	icon = "GFX_ship_part_reactor_11_enigmatic_NSC"
+# 	icon_frame = 1
+# 	power = @InterceptorFrigate_power_11
+	
+# 	resources = {
+# 		category = ship_components
+# 		cost = {
+# 			alloys = @InterceptorFrigate_cost_11
+# 			sr_dark_matter = 1
+# 		}	
+# 		upkeep = {
+# 			energy = 0.87
+# 			alloys = 0.087
+# 		}
+# 	}
+	
+# 	prerequisites = { "tech_optimized_enigmatic_power" }
+# 	component_set = "power_core"
+# 	size_restriction = { WRED_InterceptorFrigate }
+	
+# 	ai_weight = { 
+# 		weight = 11
+# 		modifier = {
+# 			factor = 0.0
+# 			no_resource_for_component = { RESOURCE = sr_dark_matter }
+# 		}
+# 	}
+# }

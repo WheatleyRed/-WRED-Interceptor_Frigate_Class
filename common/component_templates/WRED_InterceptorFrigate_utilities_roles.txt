@@ -1,0 +1,425 @@
+@cost0 = 0
+@cost1 = 5
+@cost2 = 10
+@cost3 = 20
+
+@power0 = -5
+@power1 = -10
+@power2 = -15
+@power3 = -25
+
+####################
+# DEFAULT COMPUTER #
+####################
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_DEFAULT"
+	size = small
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	ship_behavior = "default"
+	hidden = yes
+
+	class_restriction = { shipclass_military }
+	component_set = "combat_computers"
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+########################
+# BASIC SHIP COMPUTERS #
+########################
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_DEFAULT"
+	size = small
+	icon = "GFX_ship_part_computer_default"
+	icon_frame = 1
+	power = @power0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
+	ship_behavior = "swarm"
+
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_BASIC"
+	ai_tags = { gunship }
+	ai_tag_weight = 0
+
+	ai_weight = {
+		weight = 1
+	}
+}
+
+#####################
+# 'SWARM' COMPUTERS #
+#####################
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_BASIC"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_basic"
+	icon_frame = 1
+	power = @power1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate}
+	component_set = "combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_combat_computers_1" }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_ADVANCED"
+	ai_tags = { gunship brawler }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.05
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.05
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_ADVANCED"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_advanced"
+	icon_frame = 1
+	power = @power2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_combat_computers_2" }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_SAPIENT"
+	ai_tags = { gunship brawler }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.10
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.10
+	}
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_SAPIENT"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_combat_computers_3" }
+	ai_tags = { gunship brawler }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.25
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_flag = ghost_signal_5_flag
+				has_global_flag = ghost_signal_4_flag
+				has_global_flag = ghost_signal_3_flag
+				has_global_flag = ghost_signal_2_flag
+				has_global_flag = ghost_signal_1_flag
+			}
+		}
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_AUTONOMOUS"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_combat_computers_autonomous" }
+	ai_tags = { gunship brawler }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.25
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_SWARM_PRECOG"
+	size = small
+	icon = "GFX_ship_part_computer_swarm_precog"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "swarm"
+	prerequisites = { "tech_precognition_interface" }
+	ai_tags = { gunship brawler }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.15
+		ship_speed_mult = 0.20
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+	}
+
+	ai_weight = {
+		weight = 4
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################
+# 'PICKET' COMPUTERS #
+######################
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_BASIC"
+	size = small
+	icon = "GFX_ship_part_computer_picket_basic"
+	icon_frame = 1
+	power = @power1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_combat_computers_1" }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_ADVANCED"
+	ai_tags = { screen }
+	ai_tag_weight = 0
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.05
+		ship_tracking_add = 10
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_ADVANCED"
+	size = small
+	icon = "GFX_ship_part_computer_picket_advanced"
+	icon_frame = 1
+	power = @power2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_combat_computers_2" }
+	upgrades_to = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_SAPIENT"
+	ai_tags = { screen }
+	ai_tag_weight = 0
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.10
+		ship_tracking_add = 20
+	}
+
+	ai_weight = {
+		weight = 3
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_SAPIENT"
+	size = small
+	icon = "GFX_ship_part_computer_picket_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_combat_computers_3" }
+	ai_tags = { screen }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.10
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+		ship_tracking_add = 30
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0
+			OR = {
+				has_global_flag = ghost_signal_5_flag
+				has_global_flag = ghost_signal_4_flag
+				has_global_flag = ghost_signal_3_flag
+				has_global_flag = ghost_signal_2_flag
+				has_global_flag = ghost_signal_1_flag
+			}
+		}
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_AUTONOMOUS"
+	size = small
+	icon = "GFX_ship_part_computer_picket_sapient"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_combat_computers_autonomous" }
+	ai_tags = { screen }
+	ai_tag_weight = 0
+
+	modifier = {
+		ship_evasion_mult = 0.10
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.15
+		ship_tracking_add = 30
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+utility_component_template = {
+	key = "WRED_INTERCEPTORFRIGATE_COMBAT_COMPUTER_PICKET_PRECOG"
+	size = small
+	icon = "GFX_ship_part_computer_picket_precog"
+	icon_frame = 1
+	power = @power3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
+	class_restriction = { shipclass_military }
+	size_restriction = { WRED_InterceptorFrigate }
+	component_set = "combat_computers"
+	ship_behavior = "picket"
+	prerequisites = { "tech_precognition_interface" }
+	ai_tags = { screen }
+	ai_tag_weight = 0
+
+	ship_modifier = {
+		ship_fire_rate_mult = 0.20
+		ship_tracking_add = 40
+	}
+
+	ai_weight = {
+		weight = 4
+	}
+}

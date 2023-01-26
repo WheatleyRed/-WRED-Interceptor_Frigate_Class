@@ -1,0 +1,12 @@
+﻿l_simp_chinese:
+#section区段部分
+  WRED_InterceptorFrigate:0 "截击舰"
+  WRED_INTERCEPTORFRIGATE_ATTACK_CORE_S4:0 "强袭核心"
+  WRED_INTERCEPTORFRIGATE_CATCH_CORE_S3:0 "拦截核心"
+  WRED_INTERCEPTORFRIGATE_DEATHWIND_CORE_S2:0 "闪击核心"
+
+#technology科技部分
+  WRED_InterceptorFrigateMod_tech:0 "截击护卫舰"
+  WRED_InterceptorFrigateMod_tech_desc:0 "开始高级截击护卫舰的研究"
+  TECH_WRED_UNLOCK_INTERCEPTORFRIGATE_CONSTRUCTION_TITLE:0 "§H解锁舰船类型：§!截击舰\n对护卫舰级别进行了大幅度的速度增强和船体加强，灵活性都极为优秀，能作为高速度拦截敌军的先遣部队，§R但是需要花费更多的资金去建造§!"
+  TECH_WRED_UNLOCK_INTERCEPTORFRIGATE_CONSTRUCTION_TITLE_DESC:0 "开始研究截击护卫舰"
